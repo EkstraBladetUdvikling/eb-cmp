@@ -7,12 +7,7 @@ module.exports = {
   parserOptions: {
     project: ['tsconfig.json'],
   },
-  plugins: [
-    'eslint-plugin-import',
-    'eslint-plugin-jsdoc',
-    'eslint-plugin-prefer-arrow',
-    '@typescript-eslint',
-  ],
+  plugins: ['eslint-plugin-import', 'eslint-plugin-jsdoc', 'eslint-plugin-prefer-arrow', '@typescript-eslint'],
   extends: [
     'eslint:recommended',
     'plugin:import/errors',
@@ -20,7 +15,6 @@ module.exports = {
     'plugin:import/typescript',
     'plugin:@typescript-eslint/eslint-recommended',
     'plugin:@typescript-eslint/recommended',
-    // 'plugin:@typescript-eslint/recommended-requiring-type-checking', // Harder linting yet
   ],
   rules: {
     '@typescript-eslint/adjacent-overload-signatures': 'error',
@@ -38,8 +32,7 @@ module.exports = {
             message: 'Avoid using the `Object` type. Did you mean `object`?',
           },
           Function: {
-            message:
-              'Avoid using the `Function` type. Prefer a specific function type, like `() => void`.',
+            message: 'Avoid using the `Function` type. Prefer a specific function type, like `() => void`.',
           },
           Boolean: {
             message: 'Avoid using the `Boolean` type. Did you mean `boolean`?',
@@ -88,11 +81,7 @@ module.exports = {
     '@typescript-eslint/no-empty-interface': 'error',
     '@typescript-eslint/no-explicit-any': 'off',
     '@typescript-eslint/no-floating-promises': 'off', // Error handling of promises
-    '@typescript-eslint/no-inferrable-types': [
-      'off',
-      'ignore-params',
-      'ignore-properties',
-    ],
+    '@typescript-eslint/no-inferrable-types': ['off', 'ignore-params', 'ignore-properties'],
     '@typescript-eslint/no-misused-new': 'error',
     '@typescript-eslint/no-namespace': 'error',
     '@typescript-eslint/no-parameter-properties': 'off',
@@ -112,11 +101,7 @@ module.exports = {
     '@typescript-eslint/prefer-function-type': 'error',
     '@typescript-eslint/prefer-namespace-keyword': 'error',
     quotes: 'off',
-    '@typescript-eslint/quotes': [
-      'error',
-      'single',
-      { allowTemplateLiterals: true },
-    ],
+    '@typescript-eslint/quotes': ['error', 'single', { allowTemplateLiterals: true }],
     semi: 'off',
     '@typescript-eslint/semi': ['error'],
     '@typescript-eslint/triple-slash-reference': [

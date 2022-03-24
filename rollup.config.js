@@ -35,10 +35,10 @@ const plugins = [
 export default {
   input: 'src/index.ts',
   output: {
-    sourcemap: false,
+    file: 'eb-cmp.js',
     format: 'iife',
     name: 'ebCMP',
-    file: 'eb-cmp.js',
+    sourcemap: false,
   },
   plugins,
 };

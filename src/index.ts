@@ -1,12 +1,12 @@
+export { doWeHaveConsent } from 'dowehaveconsent';
+export { getAllConsents } from 'getallconsents';
+export { CONSENTNAMES, CONSENTTEXTS } from 'state';
+
 import { componentName } from 'config';
 import { consentCheck } from 'consentcheckhandler';
 import { CONSENTNAMES, CONSENTSTATE } from 'state';
 
 import type { ITCData, TLoadStatus } from 'types';
-
-export { doWeHaveConsent } from 'dowehaveconsent';
-export { getAllConsents } from 'getallconsents';
-export { CONSENTNAMES, CONSENTTEXTS } from 'state';
 
 const hasFullIABConsent = (tcData: ITCData): boolean =>
   Object.entries(tcData.purpose.consents).length > 0 && Object.entries(tcData.vendor.consents).length > 0;
