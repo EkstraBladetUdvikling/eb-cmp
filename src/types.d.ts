@@ -1,13 +1,35 @@
-import { TGetAllConsents } from './getallconsents';
-import { CONSENTNAMES, CONSENTTEXTS } from './state';
+import type { CONSENTNAMES, CONSENTTEXTS } from 'state';
+
+interface IConsents {
+  consents: {
+    [id: number]: boolean;
+  };
+}
 
 export type TLoadStatus = 'error' | 'loaded' | 'unset';
-export type TConsentTo =
-  | 'fullconsent'
-  | 'iab'
-  | 'marketing'
-  | 'preferences'
-  | 'statistics';
+
+interface ITCData {
+  cmpStatus?: TLoadStatus;
+  purpose: IConsents;
+  vendor: IConsents;
+}
+
+interface ICookieBotConsent {
+  stamp: string;
+  necessary: boolean;
+  preferences: boolean;
+  statistics: boolean;
+  marketing: boolean;
+}
+
+export interface ICookieBot {
+  consent?: ICookieBotConsent;
+  renew: () => void;
+}
+
+export type ITCFAPI = (fnName: string, version: number, callback: (tcData: ITCData) => void) => void;
+
+export type TConsentTo = 'fullconsent' | 'iab' | 'marketing' | 'preferences' | 'statistics';
 
 export interface IDoWeHaveConsentOptions {
   callback: (status: boolean, state: boolean | 'error') => void;
@@ -19,28 +41,20 @@ export interface IDoWeHaveConsentOptions {
 type TCONSENTTEXTS = keyof typeof CONSENTTEXTS;
 
 export interface IEBCMP {
-  doWeHaveConsent: (
-    options: IDoWeHaveConsentOptions,
-    recheck?: boolean
-  ) => void;
-  getAllConsents: (
-    cb: (status: TGetAllConsents) => void,
-    recheck?: boolean
-  ) => void;
+  doWeHaveConsent: (options: IDoWeHaveConsentOptions, recheck?: boolean) => void;
+  getAllConsents: (cb: (status: TGetAllConsents) => void, recheck?: boolean) => void;
   noConsentGroup: () => boolean;
   loadStatus: TLoadStatus;
   CONSENTNAMES: { [key in CONSENTNAMES] };
   CONSENTTEXTS: { [key in TCONSENTTEXTS]: CONSENTTEXTS };
 }
 
-interface IConsents {
-  consents: {
-    [id: number]: boolean;
-  };
-}
+export type TGetAllConsents = { [key in CONSENTNAMES]: boolean };
+export type TGetAllConsentsOptions = (allConsents: TGetAllConsents) => void;
 
-export interface ITCData {
-  cmpStatus?: TLoadStatus;
-  purpose: IConsents;
-  vendor: IConsents;
+export interface ICustomCMP {
+  fullConsent?: boolean;
+  googleHasConsent?: boolean;
+  loadStatus: string;
+  noConsent?: boolean;
 }

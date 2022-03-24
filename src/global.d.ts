@@ -1,34 +1,19 @@
-import { ITCData, IEBCMP } from 'types';
+import type { ICookieBot, ICustomCMP, IEBCMP, ITCFAPI } from 'types';
 
-interface ICookieBotConsent {
-  stamp: string;
-  necessary: boolean;
-  preferences: boolean;
-  statistics: boolean;
-  marketing: boolean;
-}
-
-interface ICookieBot {
-  consent?: ICookieBotConsent;
-  renew: () => void;
+interface IebLog {
+  component: string;
+  label?: string;
+  level: string;
+  message: string;
 }
 
 declare global {
   // eslint-disable-next-line @typescript-eslint/no-empty-interface
   interface Window {
-    __tcfapi: (
-      fnName: string,
-      version: number,
-      callback: (tcData: ITCData) => void
-    ) => void;
+    __tcfapi: ITCFAPI;
     Cookiebot: ICookieBot;
-    customCMP: {
-      fullConsent?: boolean;
-      googleHasConsent?: boolean;
-      loadStatus: string;
-      noConsent?: boolean;
-    };
+    customCMP: ICustomCMP;
     ebCMP: IEBCMP;
-    ebLog: (msgObj) => void;
+    ebLog: (msgObj: IebLog) => void;
   }
 }
