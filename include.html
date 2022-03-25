@@ -1,0 +1,59 @@
+<style>
+    .CybotCookiebotScrollContainer {
+      overflow-x: hidden;
+    }
+  </style>
+
+  <script src="REPLACE_WITH_FULL_URL_TO_EB_CMP_JS"></script>
+  <script>
+    window.addEventListener("CookiebotOnDialogDisplay", function () {
+      const a = document.createElement("a"),
+      c = Cookiebot.dialog.userLanguage,
+      title = { en: "It is your choice", da: "Det er dit valg" },
+      privacylink = "http://jppol.dk/" + (c !== "da" ? "en/" : "") + "privatlivspolitik/",
+      r = new RegExp("(persondatapolitik|how your personal data is processed)."),
+      t = document.getElementById("CybotCookiebotDialogBodyContentTitle"),
+      txt = document.evaluate(
+        '//*[@id="CybotCookiebotDialogBodyContentText"]/text()[3]',
+        document,
+        null,
+        XPathResult.FIRST_ORDERED_NODE_TYPE,
+        null
+      ).singleNodeValue;
+
+      if (!title[c] || !t || !txt) return;
+      a.href = privacylink;
+      a.target="_blank";
+      t.innerText = title[c];
+      if (c == "da") {
+        a.innerText = txt.data.match(r)[0];
+        txt.data = txt.data.replace(r, "");
+        txt.parentNode.insertBefore(a, txt.nextSibling);
+      }
+
+      // LI snippet
+      const IABPurposesLI = document.querySelectorAll(".CybotCookiebotDialogBodyIABButtonPurposesLegitimateInterestSelection");
+
+      for (let i of IABPurposesLI) {
+        if (/[34]/.test(i.dataset.iabpurposeid)) {
+          i.checked = false;
+          i.disabled = true;
+        }
+      }
+    });
+  </script>
+  <script id="CookiebotConfiguration" type="application/json" data-cookieconsent="ignore">
+    {
+      "Frameworks": {
+        "IABTCF2": {
+          "AllowedSpecialFeatures": []
+        }
+      }
+    }
+  </script>
+  <script id="Cookiebot"
+    src="https://consent.cookiebot.com/uc.js"
+    data-bulkconsentmode="disabled"
+    data-cbid="d0ded67e-acef-45a1-9752-84167eeb8118"
+    data-framework="IAB"
+    type="text/javascript"></script>
