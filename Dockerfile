@@ -6,6 +6,7 @@ COPY .es* ./
 COPY package*.json ./
 COPY tsconfig*.json ./
 COPY rollup.config.js ./
+COPY yarn.lock ./
 
 COPY src ./src
 
