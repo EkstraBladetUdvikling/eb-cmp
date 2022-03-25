@@ -11,7 +11,6 @@
     "@rollup/plugin-typescript": "^8.3.1",
     "@typescript-eslint/eslint-plugin": "^5.16.0",
     "@typescript-eslint/parser": "^5.16.0",
-    "copyfiles": "^2.4.1",
     "eslint": "^8.11.0",
     "eslint-config-standard": "^16.0.3",
     "eslint-import-resolver-typescript": "^2.7.0",
@@ -27,7 +26,6 @@
   },
   "scripts": {
     "build": "yarn rollup -c",
-    "deploy": "yarn build; yarn copyfiles -f \"./eb-cmp.js\" \"../eb-emergency/public/assets\"",
     "lint:fix": "eslint --fix './src/*.ts'"
   }
 }
