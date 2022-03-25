@@ -1,7 +1,8 @@
-import { checkSingleVendor } from './checksinglevendor';
-import { CONSENTSTATE, FUNCTIONNAMES } from './state';
+import { checkSingleVendor } from 'checksinglevendor';
+import { componentName } from 'config';
+import { CONSENTSTATE, FUNCTIONNAMES } from 'state';
 
-import type { IDoWeHaveConsentOptions } from './types';
+import type { IDoWeHaveConsentOptions } from 'types';
 
 export function doWeHaveConsent(options: IDoWeHaveConsentOptions, recheck: boolean = false): void {
   const { callback, defaultResponse, previousConsent, consentTo } = options;
@@ -21,9 +22,8 @@ export function doWeHaveConsent(options: IDoWeHaveConsentOptions, recheck: boole
     });
   } catch (err) {
     callback(defaultConsent, true);
-    console.error('CMP Error', err);
     window.ebLog({
-      component: 'jppolCMP',
+      component: componentName,
       label: 'doWeHaveConsent',
       level: 'ERROR',
       message: `${err.message}`,
