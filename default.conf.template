@@ -10,8 +10,13 @@ server {
         index  include.html;
         
         sub_filter "REPLACE_WITH_FULL_URL_TO_EB_CMP_JS" "${FULL_URL_TO_EB_CMP_JS}";
-        sub_filter_once off; # Don't stop at the first match, replace all of them
+        sub_filter_once on; 
         sub_filter_types text/html;
+    }
+
+    location /AWS.ALB/healthcheck {
+        add_header Content-Type text/plain;
+        return 200 'Ok';
     }
 
     # redirect server error pages to the static page /50x.html

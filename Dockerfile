@@ -19,6 +19,5 @@ FROM nginx:stable-alpine
 COPY --from=ts-compiler /build/eb-cmp.js /usr/share/nginx/html/cmp/
 
 COPY include.html /usr/share/nginx/html/cmp
-COPY healthcheck.html /usr/share/nginx/html/AWS.ALB/healthcheck
 
 COPY default.conf.template /etc/nginx/templates/default.conf.template
