@@ -1,4 +1,4 @@
-import type { CONSENTNAMES, CONSENTTEXTS } from 'state';
+import type { CONSENTNAMES, CONSENTTEXTS } from './state';
 
 interface IConsents {
   consents: {
@@ -8,7 +8,7 @@ interface IConsents {
 
 export type TLoadStatus = 'error' | 'loaded' | 'unset';
 
-interface ITCData {
+export interface ITCData {
   cmpStatus?: TLoadStatus;
   purpose: IConsents;
   vendor: IConsents;
@@ -45,8 +45,8 @@ export interface IEBCMP {
   getAllConsents: (cb: (status: TGetAllConsents) => void, recheck?: boolean) => void;
   noConsentGroup: () => boolean;
   loadStatus: TLoadStatus;
-  CONSENTNAMES: { [key in CONSENTNAMES] };
-  CONSENTTEXTS: { [key in TCONSENTTEXTS]: CONSENTTEXTS };
+  CONSENTNAMES: CONSENTNAMES;
+  CONSENTTEXTS: CONSENTTEXTS;
 }
 
 export type TGetAllConsents = { [key in CONSENTNAMES]: boolean };

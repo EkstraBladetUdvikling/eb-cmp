@@ -1,9 +1,10 @@
 {
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
-    "target": "es6",
+    "baseUrl": "./src",
+    "lib": ["dom", "es2017"],
     "moduleResolution": "node",
-    "baseUrl": "./src"
+    "target": "es6"
   },
   "exclude": ["./node_modules"]
 }

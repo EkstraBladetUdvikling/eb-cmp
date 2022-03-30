@@ -25,7 +25,8 @@
     "typescript": "^4.6.2"
   },
   "scripts": {
-    "build": "yarn rollup -c",
-    "lint:fix": "eslint --fix './src/*.ts'"
+    "build": "yarn lint || { echo 'linting failed' ; exit: 1; } && yarn declare && yarn rollup -c",
+    "declare": "yarn tsc src/*.ts --target es6 --declaration --emitDeclarationOnly --declarationDir ./types",
+    "lint": "eslint --fix './src/*.ts'"
   }
 }
