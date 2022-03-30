@@ -30,6 +30,7 @@
   "scripts": {
     "build": "yarn lint || { echo 'linting failed' ; exit: 1; } && yarn declare && yarn rollup -c",
     "declare": "yarn tsc src/types.ts --target es6 --declaration --emitDeclarationOnly --declarationDir ./types",
-    "lint": "eslint --fix './src/*.ts'"
+    "lint": "eslint --fix './src/*.ts'",
+    "prepublish": "yarn build"
   }
 }
