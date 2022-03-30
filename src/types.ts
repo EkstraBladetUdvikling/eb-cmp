@@ -38,8 +38,6 @@ export interface IDoWeHaveConsentOptions {
   previousConsent?: boolean;
 }
 
-type TCONSENTTEXTS = keyof typeof CONSENTTEXTS;
-
 export interface IEBCMP {
   doWeHaveConsent: (options: IDoWeHaveConsentOptions, recheck?: boolean) => void;
   getAllConsents: (cb: (status: TGetAllConsents) => void, recheck?: boolean) => void;
