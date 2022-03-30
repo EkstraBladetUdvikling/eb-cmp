@@ -1,4 +1,4 @@
-import type { ICookieBot, ICustomCMP, IEBCMP, ITCFAPI } from 'types';
+import type { ICookieBot, ICustomCMP, ITCFAPI } from './types';
 
 interface IebLog {
   component: string;
@@ -8,12 +8,10 @@ interface IebLog {
 }
 
 declare global {
-  // eslint-disable-next-line @typescript-eslint/no-empty-interface
   interface Window {
     __tcfapi: ITCFAPI;
     Cookiebot: ICookieBot;
     customCMP: ICustomCMP;
-    ebCMP: IEBCMP;
     ebLog: (msgObj: IebLog) => void;
   }
 }

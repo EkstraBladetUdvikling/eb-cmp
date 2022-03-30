@@ -1,8 +1,8 @@
-import { doWeHaveConsent } from 'dowehaveconsent';
-import { getAllConsents } from 'getallconsents';
-import { CONSENTSTATE, FUNCTIONNAMES } from 'state';
+import { doWeHaveConsent } from './dowehaveconsent';
+import { getAllConsents } from './getallconsents';
+import { CONSENTSTATE, FUNCTIONNAMES } from './state';
 
-import type { IDoWeHaveConsentOptions, TGetAllConsentsOptions } from 'types';
+import type { IDoWeHaveConsentOptions, TGetAllConsentsOptions } from './types';
 
 interface IListItem {
   fn: FUNCTIONNAMES;
