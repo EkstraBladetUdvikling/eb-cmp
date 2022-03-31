@@ -1,4 +1,6 @@
+import type { getPurposeText } from 'getpurposetext';
 import type { CONSENTNAMES, CONSENTTEXTS } from './state';
+export declare type RGetPurposeText = ReturnType<typeof getPurposeText>;
 interface IConsents {
     consents: {
         [id: number]: boolean;
@@ -22,25 +24,24 @@ export interface ICookieBot {
     renew: () => void;
 }
 export declare type ITCFAPI = (fnName: string, version: number, callback: (tcData: ITCData) => void) => void;
-export declare type TConsentTo = 'fullconsent' | 'iab' | 'marketing' | 'preferences' | 'statistics';
+export declare type TConsentNameKeys = keyof typeof CONSENTNAMES;
+export declare type TConsentTextKeys = keyof typeof CONSENTTEXTS;
 export interface IDoWeHaveConsentOptions {
     callback: (status: boolean, state: boolean | 'error') => void;
-    consentTo: TConsentTo;
+    consentTo: TConsentNameKeys;
     defaultResponse?: boolean;
     previousConsent?: boolean;
 }
-declare type TCONSENTNAMES = keyof typeof CONSENTNAMES;
-declare type TCONSENTTEXTS = keyof typeof CONSENTTEXTS;
 export interface IEBCMP {
     doWeHaveConsent: (options: IDoWeHaveConsentOptions, recheck?: boolean) => void;
     getAllConsents: (cb: (status: TGetAllConsents) => void, recheck?: boolean) => void;
     noConsentGroup: () => boolean;
     loadStatus: TLoadStatus;
     CONSENTNAMES: {
-        [key in TCONSENTNAMES]: CONSENTNAMES;
+        [key in TConsentNameKeys]: CONSENTNAMES;
     };
     CONSENTTEXTS: {
-        [key in TCONSENTTEXTS]: CONSENTTEXTS;
+        [key in TConsentTextKeys]: CONSENTTEXTS;
     };
 }
 export declare type TGetAllConsents = {

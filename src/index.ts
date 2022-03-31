@@ -1,5 +1,6 @@
 export { doWeHaveConsent } from './dowehaveconsent';
 export { getAllConsents } from './getallconsents';
+export { getPurposeText } from './getpurposetext';
 export { CONSENTNAMES, CONSENTTEXTS } from './state';
 
 import { componentName } from './config';
