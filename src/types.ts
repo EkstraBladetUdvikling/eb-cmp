@@ -38,13 +38,15 @@ export interface IDoWeHaveConsentOptions {
   previousConsent?: boolean;
 }
 
+type TCONSENTNAMES = keyof typeof CONSENTNAMES;
+type TCONSENTTEXTS = keyof typeof CONSENTTEXTS;
 export interface IEBCMP {
   doWeHaveConsent: (options: IDoWeHaveConsentOptions, recheck?: boolean) => void;
   getAllConsents: (cb: (status: TGetAllConsents) => void, recheck?: boolean) => void;
   noConsentGroup: () => boolean;
   loadStatus: TLoadStatus;
-  CONSENTNAMES: CONSENTNAMES;
-  CONSENTTEXTS: CONSENTTEXTS;
+  CONSENTNAMES: { [key in TCONSENTNAMES]: CONSENTNAMES };
+  CONSENTTEXTS: { [key in TCONSENTTEXTS]: CONSENTTEXTS };
 }
 
 export type TGetAllConsents = { [key in CONSENTNAMES]: boolean };
