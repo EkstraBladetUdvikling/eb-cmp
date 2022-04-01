@@ -31,6 +31,7 @@
     "build": "yarn lint && yarn declare && yarn rollup -c",
     "declare": "yarn declare:types || { echo 'declaration failed' ; exit: 1; }",
     "declare:types": "yarn tsc src/types.ts --target es6 --declaration --emitDeclarationOnly --declarationDir ./types",
+    "declare:index": "yarn tsc src/*.ts --target es6 --declaration --emitDeclarationOnly --declarationDir ./types",
     "lint": "eslint --fix './src/*.ts' || { echo 'linting failed' ; exit: 1; }",
     "prepublish": "yarn build"
   }
