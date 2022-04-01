@@ -1,6 +1,7 @@
 export { doWeHaveConsent } from './dowehaveconsent';
 export { getAllConsents } from './getallconsents';
 export { getPurposeText } from './getpurposetext';
+export { noConsentGroup } from './getnoconsentgroup';
 export { CONSENTNAMES, CONSENTTEXTS } from './state';
 
 import { componentName } from './config';
@@ -11,8 +12,6 @@ import type { ITCData, TLoadStatus } from './types';
 
 const hasFullIABConsent = (tcData: ITCData): boolean =>
   Object.entries(tcData.purpose.consents).length > 0 && Object.entries(tcData.vendor.consents).length > 0;
-
-export const noConsentGroup = (): boolean => !CONSENTSTATE.hasFullIABConsent;
 
 window.addEventListener('CookiebotOnConsentReady', () => {
   try {
