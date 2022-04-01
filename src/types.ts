@@ -1,7 +1,8 @@
+import type { doWeHaveConsent } from './dowehaveconsent';
+import type { getAllConsents } from './getallconsents';
 import type { getPurposeText } from './getpurposetext';
+import type { noConsentGroup } from './getnoconsentgroup';
 import type { CONSENTNAMES, CONSENTTEXTS } from './state';
-
-export type RGetPurposeText = ReturnType<typeof getPurposeText>;
 
 interface IConsents {
   consents: {
@@ -43,12 +44,13 @@ export interface IDoWeHaveConsentOptions {
 }
 
 export interface IEBCMP {
-  doWeHaveConsent: (options: IDoWeHaveConsentOptions, recheck?: boolean) => void;
-  getAllConsents: (cb: (status: TGetAllConsents) => void, recheck?: boolean) => void;
-  noConsentGroup: () => boolean;
+  doWeHaveConsent: ReturnType<typeof doWeHaveConsent>;
+  getAllConsents: ReturnType<typeof getAllConsents>;
+  getPurposeText: ReturnType<typeof getPurposeText>;
+  noConsentGroup: ReturnType<typeof noConsentGroup>;
   loadStatus: TLoadStatus;
-  CONSENTNAMES: { [key in TConsentNameKeys]: CONSENTNAMES };
-  CONSENTTEXTS: { [key in TConsentTextKeys]: CONSENTTEXTS };
+  CONSENTNAMES: { [key in TConsentNameKeys]: TConsentNameKeys };
+  CONSENTTEXTS: { [key in TConsentTextKeys]: TConsentTextKeys };
 }
 
 export type TGetAllConsents = { [key in CONSENTNAMES]: boolean };
