@@ -1,4 +1,4 @@
-import type { getPurposeText } from 'getpurposetext';
+import type { getPurposeText } from './getpurposetext';
 import type { CONSENTNAMES, CONSENTTEXTS } from './state';
 
 export type RGetPurposeText = ReturnType<typeof getPurposeText>;
