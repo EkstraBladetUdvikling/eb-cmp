@@ -4,6 +4,7 @@ import { CONSENTNAMES, CONSENTTEXTS } from './state';
 export function getPurposeText(consentTo: TConsentTextKeys): CONSENTTEXTS {
   switch (consentTo) {
     case CONSENTNAMES.fullconsent:
+    case CONSENTNAMES.iab:
       return CONSENTTEXTS.fullconsent;
     case CONSENTNAMES.marketing:
       return CONSENTTEXTS.marketing;

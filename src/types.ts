@@ -44,10 +44,10 @@ export interface IDoWeHaveConsentOptions {
 }
 
 export interface IEBCMP {
-  doWeHaveConsent: ReturnType<typeof doWeHaveConsent>;
-  getAllConsents: ReturnType<typeof getAllConsents>;
-  getPurposeText: ReturnType<typeof getPurposeText>;
-  noConsentGroup: ReturnType<typeof noConsentGroup>;
+  doWeHaveConsent: typeof doWeHaveConsent;
+  getAllConsents: typeof getAllConsents;
+  getPurposeText: typeof getPurposeText;
+  noConsentGroup: typeof noConsentGroup;
   loadStatus: TLoadStatus;
   CONSENTNAMES: { [key in TConsentNameKeys]: TConsentNameKeys };
   CONSENTTEXTS: { [key in TConsentTextKeys]: TConsentTextKeys };

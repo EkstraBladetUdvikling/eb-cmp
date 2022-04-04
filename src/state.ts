@@ -13,6 +13,7 @@ export enum CONSENTNAMES {
 
 export enum CONSENTTEXTS {
   fullconsent = 'Tillad alle',
+  iab = 'Tillad alle',
   marketing = 'Marketing',
   preferences = 'Præferencer',
   statistics = 'Statistik',
