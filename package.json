@@ -32,6 +32,7 @@
     "declare": "yarn declare:types || { echo 'declaration failed'; exit: 1; }",
     "declare:types": "yarn tsc src/*.ts --target es6 --declaration --emitDeclarationOnly --declarationDir ./types",
     "lint": "eslint --fix './src/*.ts' || { echo 'linting failed'; exit: 1; }",
-    "prepublish": "yarn build"
+    "prepublish": "yarn build",
+    "docker:build": "docker build -t eb-cmp ."
   }
 }
