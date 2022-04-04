@@ -11,6 +11,7 @@ export declare enum CONSENTNAMES {
 }
 export declare enum CONSENTTEXTS {
     fullconsent = "Tillad alle",
+    iab = "Tillad alle",
     marketing = "Marketing",
     preferences = "Pr\u00E6ferencer",
     statistics = "Statistik"
