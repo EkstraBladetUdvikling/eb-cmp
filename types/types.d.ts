@@ -22,6 +22,7 @@ interface ICookieBotConsent {
     marketing: boolean;
 }
 export interface ICookieBot {
+    consentID?: string;
     consent?: ICookieBotConsent;
     renew: () => void;
 }
