@@ -4,6 +4,6 @@ export { getPurposeText } from './getpurposetext';
 export { noConsentGroup } from './getnoconsentgroup';
 export { CONSENTNAMES, CONSENTTEXTS } from './state';
 import type { TLoadStatus } from './types';
+export declare let consentID: string;
 export declare const editConsent: () => void;
-export declare const consentID: string;
 export declare let loadStatus: TLoadStatus;
