@@ -1,13 +1,13 @@
 <style>
-    .CybotCookiebotScrollContainer {
-      overflow-x: hidden;
-    }
-  </style>
+  .CybotCookiebotScrollContainer {
+    overflow-x: hidden;
+  }
+</style>
 
-  <script src="REPLACE_WITH_FULL_URL_TO_EB_CMP_JS"></script>
-  <script>
-    window.addEventListener("CookiebotOnDialogDisplay", function () {
-      const a = document.createElement("a"),
+<script src="REPLACE_WITH_FULL_URL_TO_EB_CMP_JS"></script>
+<script>
+  window.addEventListener("CookiebotOnDialogDisplay", function () {
+    const a = document.createElement("a"),
       c = Cookiebot.dialog.userLanguage,
       title = { en: "It is your choice", da: "Det er dit valg" },
       privacylink = "http://jppol.dk/" + (c !== "da" ? "en/" : "") + "privatlivspolitik/",
@@ -21,39 +21,48 @@
         null
       ).singleNodeValue;
 
-      if (!title[c] || !t || !txt) return;
-      a.href = privacylink;
-      a.target="_blank";
-      t.innerText = title[c];
-      if (c == "da") {
-        a.innerText = txt.data.match(r)[0];
-        txt.data = txt.data.replace(r, "");
-        txt.parentNode.insertBefore(a, txt.nextSibling);
-      }
+    if (!title[c] || !t || !txt) return;
+    a.href = privacylink;
+    a.target = "_blank";
+    t.innerText = title[c];
+    if (c == "da") {
+      a.innerText = txt.data.match(r)[0];
+      txt.data = txt.data.replace(r, "");
+      txt.parentNode.insertBefore(a, txt.nextSibling);
+    }
 
-      // LI snippet
-      const IABPurposesLI = document.querySelectorAll(".CybotCookiebotDialogBodyIABButtonPurposesLegitimateInterestSelection");
+    // LI snippet
+    const IABPurposesLI = document.querySelectorAll(
+      ".CybotCookiebotDialogBodyIABButtonPurposesLegitimateInterestSelection"
+    );
 
-      for (let i of IABPurposesLI) {
-        if (/[34]/.test(i.dataset.iabpurposeid)) {
-          i.checked = false;
-          i.disabled = true;
-        }
-      }
-    });
-  </script>
-  <script id="CookiebotConfiguration" type="application/json" data-cookieconsent="ignore">
-    {
-      "Frameworks": {
-        "IABTCF2": {
-          "AllowedSpecialFeatures": []
-        }
+    for (let i of IABPurposesLI) {
+      if (/[34]/.test(i.dataset.iabpurposeid)) {
+        i.checked = false;
+        i.disabled = true;
       }
     }
-  </script>
-  <script id="Cookiebot"
-    src="https://consent.cookiebot.com/uc.js"
-    data-bulkconsentmode="disabled"
-    data-cbid="d0ded67e-acef-45a1-9752-84167eeb8118"
-    data-framework="IAB"
-    type="text/javascript"></script>
+  });
+</script>
+<script id="CookiebotConfiguration" type="application/json" data-cookieconsent="ignore">
+  {
+    "Frameworks": {
+      "IABTCF2": {
+        "AllowedSpecialFeatures": [],
+        "AllowedGoogleACVendors": [
+          70, 89, 108, 122, 149, 162, 167, 196, 241, 259, 311, 317, 323, 338, 415, 440, 449, 486, 494, 495, 540, 574,
+          817, 864, 981, 1051, 1095, 1097, 1127, 1201, 1205, 1211, 1276, 1301, 1365, 1415, 1449, 1570, 1577, 1651, 1716,
+          1765, 1870, 1878, 1889, 2072, 2202, 2253, 2299, 2316, 2337, 2357, 2526, 2568, 2571, 2575, 2677, 2891, 3251
+        ]
+      }
+    }
+  }
+</script>
+<script
+  id="Cookiebot"
+  src="https://consent.cookiebot.com/uc.js"
+  data-bulkconsentmode="disabled"
+  data-cbid="d0ded67e-acef-45a1-9752-84167eeb8118"
+  data-framework="IAB"
+  type="text/javascript"
+></script>
