@@ -29,6 +29,7 @@ const STATE = {
 
 function setupDone(): void {
   STATE.ready = true;
+
   handleWaiting();
 }
 

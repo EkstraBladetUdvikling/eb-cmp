@@ -13,6 +13,8 @@ import type { ITCData, TLoadStatus } from './types';
 const hasFullIABConsent = (tcData: ITCData): boolean =>
   Object.entries(tcData.purpose.consents).length > 0 && Object.entries(tcData.vendor.consents).length > 0;
 
+export let consentID = '';
+
 window.addEventListener('CookiebotOnConsentReady', () => {
   try {
     if (window.Cookiebot.consent[CONSENTNAMES.marketing]) {
@@ -24,7 +26,7 @@ window.addEventListener('CookiebotOnConsentReady', () => {
       CONSENTSTATE.hasFullIABConsent = false;
       CONSENTSTATE.setupDone();
     }
-
+    consentID = window.Cookiebot && window.Cookiebot.consentID ? window.Cookiebot.consentID : '';
     consentCheck(true);
   } catch (err) {
     CONSENTSTATE.hasFullIABConsent = false;
@@ -38,8 +40,9 @@ window.addEventListener('CookiebotOnConsentReady', () => {
   }
 });
 
-export let loadStatus: TLoadStatus = 'unset';
+export const editConsent = () => window.Cookiebot.renew();
 
+export let loadStatus: TLoadStatus = 'unset';
 window.addEventListener('load', () => {
   loadStatus = window.Cookiebot.consent ? 'loaded' : 'error';
 
