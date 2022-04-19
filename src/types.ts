@@ -1,4 +1,5 @@
 import type { doWeHaveConsent } from './dowehaveconsent';
+import type { editConsent } from 'index';
 import type { getAllConsents } from './getallconsents';
 import type { getPurposeText } from './getpurposetext';
 import type { noConsentGroup } from './getnoconsentgroup';
@@ -45,7 +46,9 @@ export interface IDoWeHaveConsentOptions {
 }
 
 export interface IEBCMP {
+  consentID: string;
   doWeHaveConsent: typeof doWeHaveConsent;
+  editConsent: typeof editConsent;
   getAllConsents: typeof getAllConsents;
   getPurposeText: typeof getPurposeText;
   noConsentGroup: typeof noConsentGroup;
