@@ -40,7 +40,9 @@ window.addEventListener('CookiebotOnConsentReady', () => {
   }
 });
 
-export const editConsent = () => window.Cookiebot.renew();
+export function editConsent() {
+  window.Cookiebot.renew();
+}
 
 export let loadStatus: TLoadStatus = 'unset';
 window.addEventListener('load', () => {
