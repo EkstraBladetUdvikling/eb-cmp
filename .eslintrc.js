@@ -146,7 +146,7 @@ module.exports = {
     'no-bitwise': 'off',
     'no-caller': 'error',
     'no-cond-assign': 'error',
-    'no-console': ['error', { allow: ['warn', 'error', 'log'] }],
+    'no-console': ['error', { allow: ['warn', 'error'] }],
     'no-debugger': 'error',
     'no-empty': 'error',
     'no-eval': 'error',
