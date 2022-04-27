@@ -12,7 +12,7 @@ COPY src ./src
 
 RUN yarn install
 
-RUN yarn build
+RUN yarn build:rollup
 
 FROM nginx:stable-alpine
 
