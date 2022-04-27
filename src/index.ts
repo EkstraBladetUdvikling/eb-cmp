@@ -19,7 +19,6 @@ window.addEventListener('CookiebotOnConsentReady', () => {
   try {
     if (window.Cookiebot.consent[CONSENTNAMES.marketing]) {
       window.__tcfapi('getTCData', 2, (tcData: ITCData) => {
-        console.log('tcData', tcData);
         CONSENTSTATE.hasFullIABConsent = hasFullIABConsent(tcData);
         CONSENTSTATE.setupDone();
       });
