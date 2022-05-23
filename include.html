@@ -53,7 +53,7 @@
       now = new Date();
 
     for (var i = 0; i < cookies.length; i++) {
-      if (/^CookieConsent/g.test(cookies[i])) consentCookie = cookies[i];
+      if (cookies[i].indexOf("CookieConsent") !== -1) consentCookie = cookies[i];
     }
     if (consentCookie !== "" && now < consentExpiry) {
       document.cookie = consentCookie + ";expires=" + consentExpiry.toUTCString();
