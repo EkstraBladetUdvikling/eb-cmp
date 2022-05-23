@@ -44,7 +44,6 @@
     }
   });
   window.addEventListener("CookiebotOnConsentReady", function () {
-    console.log("CookiebotOnConsentReady");
     try {
       // cookie expirery snippet
       var cookies = document.cookie.split(";"),
@@ -53,23 +52,13 @@
         consentExpiry = new Date(consentDate.setMonth(consentDate.getMonth() + 12)),
         now = new Date();
 
-      console.log("CookiebotOnConsentReady", consentDate);
-      console.log("CookiebotOnConsentReady", consentExpiry);
       for (var i = 0; i < cookies.length; i++) {
         if (cookies[i].indexOf("CookieConsent") !== -1) {
           consentCookie = cookies[i];
         }
       }
 
-      console.log(
-        "CookiebotOnConsentReady (consentCookie !== && now < consentExpiry)",
-        consentCookie !== "" && now < consentExpiry
-      );
-      console.log("CookiebotOnConsentReady consentCookie", consentCookie);
-      console.log("CookiebotOnConsentReady now", now);
-      console.log("CookiebotOnConsentReady consentExpiry", consentExpiry);
       if (consentCookie !== "" && now < consentExpiry) {
-        console.log("writing cookie ", consentExpiry);
         document.cookie = consentCookie + ";expires=" + consentExpiry.toUTCString();
       }
     } catch (error) {
