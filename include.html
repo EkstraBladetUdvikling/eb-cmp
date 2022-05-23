@@ -53,6 +53,7 @@
         consentExpiry = new Date(consentDate.setMonth(consentDate.getMonth() + 12)),
         now = new Date();
 
+      console.log("CookiebotOnConsentReady", consentDate);
       console.log("CookiebotOnConsentReady", consentExpiry);
       for (var i = 0; i < cookies.length; i++) {
         if (cookies[i].indexOf("CookieConsent") !== -1) {
