@@ -42,6 +42,21 @@
         i.disabled = true;
       }
     }
+
+    // cookie expirery snippet
+    var cookiebot = Cookiebot,
+      cookies = document.cookie.split(";"),
+      consentCookie = "",
+      consentDate = cookiebot.consentUTC,
+      consentExpiry = new Date(consentDate.setMonth(consentDate.getMonth() + 12)),
+      now = new Date();
+
+    for (var i = 0; i < cookies.length; i++) {
+      if (/^CookieConsent/g.test(cookies[i])) consentCookie = cookies[i];
+    }
+    if (consentCookie !== "" && now < consentExpiry) {
+      d.cookie = consentCookie + ";expires=" + consentExpiry.toUTCString();
+    }
   });
 </script>
 <script id="CookiebotConfiguration" type="application/json" data-cookieconsent="ignore">
