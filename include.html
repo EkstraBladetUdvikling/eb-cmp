@@ -55,7 +55,7 @@
       if (/^CookieConsent/g.test(cookies[i])) consentCookie = cookies[i];
     }
     if (consentCookie !== "" && now < consentExpiry) {
-      d.cookie = consentCookie + ";expires=" + consentExpiry.toUTCString();
+      document.cookie = consentCookie + ";expires=" + consentExpiry.toUTCString();
     }
   });
 </script>
