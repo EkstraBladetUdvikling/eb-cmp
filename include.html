@@ -42,7 +42,8 @@
         i.disabled = true;
       }
     }
-
+  });
+  window.addEventListener("CookiebotOnConsentReady", function () {
     // cookie expirery snippet
     var cookiebot = Cookiebot,
       cookies = document.cookie.split(";"),
