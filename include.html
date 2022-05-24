@@ -43,6 +43,28 @@
       }
     }
   });
+  window.addEventListener("CookiebotOnConsentReady", function () {
+    try {
+      // cookie expirery snippet
+      var cookies = document.cookie.split(";"),
+        consentCookie = "",
+        consentDate = Cookiebot.consentUTC,
+        consentExpiry = new Date(consentDate.setMonth(consentDate.getMonth() + 12)),
+        now = new Date();
+
+      for (var i = 0; i < cookies.length; i++) {
+        if (cookies[i].indexOf("CookieConsent") !== -1) {
+          consentCookie = cookies[i];
+        }
+      }
+
+      if (consentCookie !== "" && now < consentExpiry) {
+        document.cookie = consentCookie + ";expires=" + consentExpiry.toUTCString();
+      }
+    } catch (error) {
+      console.error("expire snippet");
+    }
+  });
 </script>
 <script id="CookiebotConfiguration" type="application/json" data-cookieconsent="ignore">
   {
