@@ -14,11 +14,13 @@ const hasFullIABConsent = (tcData: ITCData): boolean =>
   Object.entries(tcData.purpose.consents).length > 0 && Object.entries(tcData.vendor.consents).length > 0;
 
 export let consentID = '';
+export let tcString = '';
 
 window.addEventListener('CookiebotOnConsentReady', () => {
   try {
     if (window.Cookiebot.consent[CONSENTNAMES.marketing]) {
       window.__tcfapi('getTCData', 2, (tcData: ITCData) => {
+        tcString = tcData.tcString;
         CONSENTSTATE.hasFullIABConsent = hasFullIABConsent(tcData);
         CONSENTSTATE.setupDone();
       });
