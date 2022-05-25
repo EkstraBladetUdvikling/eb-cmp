@@ -2,6 +2,7 @@ export { doWeHaveConsent } from './dowehaveconsent';
 export { getAllConsents } from './getallconsents';
 export { getPurposeText } from './getpurposetext';
 export { noConsentGroup } from './getnoconsentgroup';
+export { getTCstring } from './gettcfdata';
 export { CONSENTNAMES, CONSENTTEXTS } from './state';
 
 import { componentName } from './config';
