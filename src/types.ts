@@ -17,6 +17,7 @@ export interface ITCData {
   cmpStatus?: TLoadStatus;
   purpose: IConsents;
   vendor: IConsents;
+  tcString: string;
 }
 
 interface ICookieBotConsent {
@@ -53,6 +54,7 @@ export interface IEBCMP {
   getPurposeText: typeof getPurposeText;
   noConsentGroup: typeof noConsentGroup;
   loadStatus: TLoadStatus;
+  tcString: string;
   CONSENTNAMES: { [key in TConsentNameKeys]: TConsentNameKeys };
   CONSENTTEXTS: { [key in TConsentTextKeys]: TConsentTextKeys };
 }
