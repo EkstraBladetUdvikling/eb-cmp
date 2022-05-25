@@ -17,6 +17,7 @@ export interface ITCData {
   cmpStatus?: TLoadStatus;
   purpose: IConsents;
   vendor: IConsents;
+  tcString: string;
 }
 
 interface ICookieBotConsent {
