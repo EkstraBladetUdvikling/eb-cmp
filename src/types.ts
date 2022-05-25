@@ -54,6 +54,7 @@ export interface IEBCMP {
   getPurposeText: typeof getPurposeText;
   noConsentGroup: typeof noConsentGroup;
   loadStatus: TLoadStatus;
+  tcString: string;
   CONSENTNAMES: { [key in TConsentNameKeys]: TConsentNameKeys };
   CONSENTTEXTS: { [key in TConsentTextKeys]: TConsentTextKeys };
 }
