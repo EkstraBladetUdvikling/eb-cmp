@@ -59,7 +59,7 @@
       }
 
       if (consentCookie !== "" && now < consentExpiry) {
-        document.cookie = consentCookie + ";expires=" + consentExpiry.toUTCString();
+        document.cookie = consentCookie + ";expires=" + consentExpiry.toUTCString() + ";path=/";
       }
     } catch (error) {
       console.error("expire snippet");
