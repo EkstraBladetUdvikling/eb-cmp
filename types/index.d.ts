@@ -5,5 +5,6 @@ export { noConsentGroup } from './getnoconsentgroup';
 export { CONSENTNAMES, CONSENTTEXTS } from './state';
 import type { TLoadStatus } from './types';
 export declare let consentID: string;
+export declare let tcString: string;
 export declare function editConsent(): void;
 export declare let loadStatus: TLoadStatus;
