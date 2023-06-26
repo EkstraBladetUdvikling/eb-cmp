@@ -57,10 +57,4 @@ export declare type TGetAllConsents = {
     [key in CONSENTNAMES]: boolean;
 };
 export declare type TGetAllConsentsOptions = (allConsents: TGetAllConsents) => void;
-export interface ICustomCMP {
-    fullConsent?: boolean;
-    googleHasConsent?: boolean;
-    loadStatus: string;
-    noConsent?: boolean;
-}
 export {};
