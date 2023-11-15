@@ -5,7 +5,8 @@
   "repository": "git@github.com:EkstraBladetUdvikling/eb-cmp.git",
   "author": "tegner <jesper.h.tegner@jppol.dk>",
   "files": [
-    "./types"
+    "./types",
+    "./include.html"
   ],
   "license": "MIT",
   "devDependencies": {
