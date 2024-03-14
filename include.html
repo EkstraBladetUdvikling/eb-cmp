@@ -42,24 +42,30 @@
   });
   window.addEventListener("CookiebotOnConsentReady", () => {
     try {
-      // cookie expirery snippet
-      var cookies = document.cookie.split(";"),
+      let host = location.host,
+        document = window.document,
+        cookies = document.cookie.split(";"),
         consentCookie = "",
-        consentDate = Cookiebot.consentUTC,
-        consentExpiry = new Date(consentDate.setMonth(consentDate.getMonth() + 12)),
-        now = new Date();
+        consentExpirationDate = new Date(Cookiebot.consentUTC),
+        newConsentExpirationDate = new Date(consentExpirationDate.setMonth(consentExpirationDate.getMonth() + 12));
 
-      for (var i = 0; i < cookies.length; i++) {
-        if (cookies[i].indexOf("CookieConsent") !== -1) {
-          consentCookie = cookies[i];
+      for (let cookie of cookies) {
+        if (/CookieConsent=/g.test(cookie)) {
+          consentCookie = cookie;
+          break;
         }
       }
 
-      if (consentCookie !== "" && now < consentExpiry) {
-        document.cookie = consentCookie + ";expires=" + consentExpiry.toUTCString() + ";path=/";
+      if (consentCookie === "") {
+        return;
       }
+
+      document.cookie = `${consentCookie};expires=${newConsentExpirationDate.toUTCString()};domain=${host.substring(
+        host.indexOf("."),
+        host.length
+      )};SameSite=None;Secure;path=/`;
     } catch (error) {
-      console.error("expire snippet");
+      console.error("CMP shared cookie expirery snippet", error);
     }
   });
 </script>
